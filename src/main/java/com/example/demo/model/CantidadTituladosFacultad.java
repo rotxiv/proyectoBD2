@@ -12,8 +12,8 @@ public class CantidadTituladosFacultad {
 
     @Id
     private Integer id;
-    private String localidad;
-    private float inscritos;
+    private String facultad;
+    private float titulados;
 
     public CantidadTituladosFacultad() {
 

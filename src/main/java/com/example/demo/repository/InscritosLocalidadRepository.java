@@ -12,8 +12,7 @@ import com.example.demo.model.EstudiantesInscritosLocalidad;
 import jakarta.transaction.Transactional;
 
 @Repository
-public interface InscritosLocalidadRepository extends 
-    CrudRepository<EstudiantesInscritosLocalidad, String> {
+public interface InscritosLocalidadRepository extends CrudRepository<EstudiantesInscritosLocalidad, String> {
 
     @Transactional
     @Query(value = "select * from EstudiantesInscritosPorLocalidad(:periodo)", nativeQuery = true)

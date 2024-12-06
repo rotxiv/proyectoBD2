@@ -12,7 +12,7 @@ import com.example.demo.model.DesercionFacultad;
 import jakarta.transaction.Transactional;
 
 @Repository
-public interface PorcentajeDesercionFacultadRepository extends CrudRepository<DesercionFacultad,String> {
+public interface PorcentajeDesercionFacultadRepository extends CrudRepository<DesercionFacultad, String> {
     @Transactional
     @Query(value = "select * from PorcentajeDeDesercionPorFacultad(:periodo)", nativeQuery = true)
     public List<DesercionFacultad> desercionFacultad(@Param("periodo") String periodo);

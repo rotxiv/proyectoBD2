@@ -8,21 +8,21 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-public class CantidadEgresadosFacultad {
+public class PromedioPonderadoAcumuladoCarreraFacultad {
 
     @Id
     private Integer id;
     private String facultad;
-    private float egresados;
+    private float promedio;
 
-    public CantidadEgresadosFacultad() {
-
+    public PromedioPonderadoAcumuladoCarreraFacultad() {
+        
     }
 
-    public CantidadEgresadosFacultad(Integer id, String facultad, float egresados) {
+    public PromedioPonderadoAcumuladoCarreraFacultad(Integer id, String facultad, float promedio) {
         this.id = id;
         this.facultad = facultad;
-        this.egresados = egresados;
+        this.promedio = promedio;
     }
-    
+
 }

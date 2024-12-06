@@ -12,7 +12,7 @@ import com.example.demo.model.RendimientoAcademicoFacultad;
 import jakarta.transaction.Transactional;
 
 @Repository
-public interface RendimientoAcademicoFacultadRepository extends CrudRepository<RendimientoAcademicoFacultad,String> {
+public interface RendimientoAcademicoFacultadRepository extends CrudRepository<RendimientoAcademicoFacultad, String> {
     @Transactional
     @Query(value = "select * from RendimientoAcademicoPorFacultad(:periodo)", nativeQuery = true)
     public List<RendimientoAcademicoFacultad> rendimientoAcademicoFacultad(@Param("periodo") String periodo);    

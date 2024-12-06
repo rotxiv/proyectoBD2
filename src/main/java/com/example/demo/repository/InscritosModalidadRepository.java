@@ -12,7 +12,7 @@ import com.example.demo.model.EstudiantesInscritosModalidad;
 import jakarta.transaction.Transactional;
 
 @Repository
-public interface InscritosModalidadRepository extends CrudRepository<EstudiantesInscritosModalidad,String> {
+public interface InscritosModalidadRepository extends CrudRepository<EstudiantesInscritosModalidad, String> {
     @Transactional
     @Query(value = "select * from EstudiantesInscritosPorModalidad(:periodo)", nativeQuery = true)
     public List<EstudiantesInscritosModalidad> inscritosModalidad(@Param("periodo") String periodo);

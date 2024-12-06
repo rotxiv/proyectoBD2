@@ -12,7 +12,8 @@ import com.example.demo.model.PromedioPonderadoSemestralSinCeroFacultad;
 import jakarta.transaction.Transactional;
 
 @Repository
-public interface PromedioPonderadoSemestralSinCeroFacultadRepository extends CrudRepository<PromedioPonderadoSemestralSinCeroFacultad,String> {
+public interface PromedioPonderadoSemestralSinCeroFacultadRepository extends CrudRepository<PromedioPonderadoSemestralSinCeroFacultad, String> {
+    
     @Transactional
     @Query(value = "select * from PromedioPonderadoSemestralSinCeroPorFacultad(:periodo)", nativeQuery = true)
     public List<PromedioPonderadoSemestralSinCeroFacultad> promedioPonderadoSemestralSinCeroFacultad(@Param("periodo") String periodo);    

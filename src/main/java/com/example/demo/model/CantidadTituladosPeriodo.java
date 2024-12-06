@@ -8,21 +8,21 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-public class PromedioPonderadoSemestralPeriodo {
+public class CantidadTituladosPeriodo {
 
     @Id
     private Integer id;
     private String periodo;
-    private float promedio;
+    private float titulados;
 
-    public PromedioPonderadoSemestralPeriodo() {
-        
+    public CantidadTituladosPeriodo() {
+
     }
 
-    public PromedioPonderadoSemestralPeriodo(Integer id, String periodo, float promedio) {
+    public CantidadTituladosPeriodo(Integer id, String periodo, float titulados) {
         this.id = id;
         this.periodo = periodo;
-        this.promedio = promedio;
+        this.titulados = titulados;
     }
 
 }
