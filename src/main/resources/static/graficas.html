@@ -1,16 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./styleTwo.css" type="text/css">
 </head>
 <body>
-    <h1>hello world...!!!</h1>
+    <h1>Hello world...!!!</h1>
+    <div id="periodos" class="paleta">
+        <select id="periodo">
+            <option value="2019-1">Periodo 2019-1</option>
+            <option value="2019-2">Periodo 2019-2</option>
+            <option value="2020-1">Periodo 2020-1</option>
+        </select>
+    </div>
+    <div id="localidades" class="paleta">
+        <select id="localidad">
+            <option value="SANTA CRUZ">Santa Cruz</option>
+            <option value="CAMIRI">Santa Cruz</option>
+            <option value="PUERTO SUAREZ">Puerto Suarez</option>
+            <option value="EL TORNO">El Torno</option>
+            <option value="MONTERO">Montero</option>
+            <option value="YAPACANI">Yapacani</option>
+            <option value="SAN JULIAN">San Julian</option>
+            <option value="SAN MATIAS">San Matias</option>
+            <option value="SAN IGNACIO DE VELAS">San Ignacio de Velasco</option>
+            <option value="SAN JOSE DE CHIQUITO">San Jose De Chiquitos</option>
+            <option value="COMARAPA">Comarapa</option>
+            <option value="COTOCA">Cotoca</option>
+            <option value="MAIRANA">Mairana</option>
+            <option value="ROBORE">Robore</option>
+            <option value="VALLEGRANDE">Valllegrande</option>
+            <option value="4 CANADAS">Cuatro Cañadas</option>
+            <option value="LA GUARDIA">La Guardia</option>
+        
+        </select>
+    </div>
+    <div id="facultades" class="paleta">
+        <select id="facultad">
+            <option value="01 INTEGRAL DEL CHACO">01 Integral del Chaco</option>
+            <option value="02 POLITECNICA">02 Politecnica</option>
+            <option value="03 CIENCIAS AGRICOLAS">03 Ciencias Agricolas</option>
+            <option value="04 CIENCIAS ECONOMICAS">04 Ciencias Economicas</option>
+            <option value="05 CIENCIAS EXACTAS Y">05 Ciencias Exactas y </option>
+            <option value="06 CIENCIAS JURIDICAS">06 Ciencias Juridicas</option>
+            <option value="07 CIENCIAS VETERINARI">07 Ciencias Veterinarias</option>
+            <option value="08 HUMANIDADES">08 humanidades</option>
+            <option value="09 CIENCIAS DE LA SALU">09 Ciencias de la Salud</option>
+            <option value="10 CIENCIAS FARMACEUTI">10 Ciencias Farmaceuticas</option>
+            <option value="11 CIENCIAS DEL HABITA">11 Ciencias del Habitad</option>
+            <option value="12 AUDITORIA FINANCIER">12 Auditoria Fianciera</option>
+            <option value="14 INTEGRAL DE LOS VAL">14 Integral de los Valles</option>
+            <option value="18 INGENIERIA EN CIENC">18 Ingenieria En Ciencias de la Computación</option>
+        </select>
+    </div>
+    <div id="modalidades" class="paleta">
+        <select id="modalidad">
+            <option value="DISTANCIA">Distancia</option>
+            <option value="PRESENCIAL">Presencial</option>
+            <option value="VIRTUAL">Virtual</option>
+        </select>
+    </div>
+
     <section class="content">
         <canvas id="grafica"></canvas>
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="funciones.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
