@@ -23,3 +23,45 @@
     margin: 5px;
 }
 
+#modalidad,
+#facultad,
+#localidad,
+#periodo {
+    display: none;
+    margin-top: 10px;
+}
+
+#paleta-opciones {
+    display: none;
+    position: relative;
+    align-items: center;
+    margin: 10px;
+}
+
+#retornar,
+#mostrar-grafica {
+    background-color: #007bff;
+    padding: 10px 20px;
+    align-items: center;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+
+#contenido {
+    display: none;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#tabla-grafica {
+    max-width: 30%;
+}
+
+#grafica {
+    max-width: 70%;
+}
+

@@ -4,13 +4,21 @@
 	color: #362f2f;
 }
 
-#modalidades,
-#facultades,
-#localidades,
-#periodos {
-    
+#modalidad,
+#facultad,
+#localidad,
+#periodo {
+    display: none;
     margin-top: 10px;
 }
+
+#retornar,
+#opciones {
+    position: relative;
+    display: inline;
+    margin: 10px;
+}
+
 
 .content {
     width: 100%;

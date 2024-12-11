@@ -1,171 +1,377 @@
 const URL_API = "http://localhost:8080/API/Academico";
-const grafica = document.getElementById('grafica');
-const periodo = document.getElementById('periodos');
-const localidad = document.getElementById('localidades');
-const facultad = document.getElementById('facultades');
-const modalidad = document.getElementById('modalidades');
 
 
-function functionChart(grafica, localidad, inscritos) {
-    const myChart = new Chart(grafica, {
-        type: 'bar',
-        data: {
-            labels: localidad,
-            datasets: [{
-                label: 'Edad',
-                data: inscritos,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 205, 86, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
-                ],
-                borderColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(255, 159, 64)',
-                    'rgb(255, 205, 86)',
-                    'rgb(153, 102, 255)'
-                ],
-                borderWidth: 1
-            }],
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            },
-        },
+
+function construirUrl(opcion, params) {
+    var url = URL_API + "/" + opcion.id; 
+    params.forEach(elem => {
+        url = url + "/" + elem;
     });
+    return url;
 };
 
-
-function opcionesUno() {
-    alert("¡Hola..., Soy un mensaje de alerta...!");
-    localidad.style.display = "none";
-    modalidad.style.display = "none";
-    facultad.style.display = "none";
-    periodo.style.display = "inline";
-};
-const cargarGraficoUno = async() => {
+async function obtenerConsulta(url) {  
     try {
-        const respuesta = await fetch(`${URL_API}/GraficaUno/2019-1`);
-        let id = [], localidad = [], inscritos = [];
-        if (respuesta.status === 200) {
-            const datos = await respuesta.json();
-            datos.forEach(element => {
-               id.push(element.id);
-               localidad.push(element.localidad);
-               inscritos.push(element.inscritos);
-            });
-            functionChart(grafica,localidad,inscritos);
+        var res = await fetch(url);
+        if (res.status === 200) {
+            const datos = await res.json();
+            return datos;
         }
-    }catch(error){
-		console.log(error);
-	}
+    } catch (error) {
+        console.log(error);
+        return [];
+    } 
 };
 
-const cargarGraficoDos = async() => {
-    try {
-        const respuesta = await fetch(`${URL_API}/Graficados/param`);
-        let id = [], localidad = [], inscritos = [];
-        if (respuesta.status === 200) {
-            const datos = await respuesta.json();
-            datos.forEach(element => {
-               id.push(element.id);
-               localidad.push(element.localidad);
-               inscritos.push(element.inscritos);
-            });
-            functionChart(grafica,localidad,inscritos);
-        }
-
-    }catch(error){
-		console.log(error);
-	}
+function generarGrafico(opcion, params) {
+    const url = construirUrl(opcion,params);
+    if (opcion.id === "GraficaUno") {
+        cargarGraficoUno(url);
+    }
+    else if (opcion.id === "GraficaDos") {
+        cargarGraficoDos(url);
+    }
+    else if (opcion.id === "GraficaTres") {
+        cargarGraficoTres(url);
+    }
+    else if (opcion.id === "GraficaCuatro") {
+        cargarGraficoCuatro(url);
+    }
+    else if (opcion.id === "GraficaCinco") {
+        cargarGraficoCinco(url);
+    }
+    else if (opcion.id === "GraficaSies") {
+        cargarGraficoSeis(url);
+    }
+    else if (opcion.id === "GraficaSiete") {
+        cargarGraficoSiete(url);
+    }
+    else if (opcion.id === "GraficaOcho") {
+        cargarGraficoOcho(url);
+    }
+    else if (opcion.id === "GraficaNueve") {
+        cargarGraficoNueve(url);
+    }
+    else if (opcion.id === "GraficaDiez") {
+        cargarGraficoDiez(url);
+    }
+    else if (opcion.id === "GraficaOnce") {
+        cargarGraficoOnce(url);
+    }
+    else if (opcion.id === "GraficaDoce") {
+        cargarGraficoDoce(url);
+    }
+    else if (opcion.id === "GraficaTrece") {
+        cargarGraficoTrece(url);
+    }
+    else if (opcion.id === "GraficaCatorce") {
+        cargarGraficoCatorce(url);
+    }
+    else if (opcion.id === "GraficaQince") {
+        cargarGraficoQuince(url);
+    }
+    else if (opcion.id === "GraficaDieciseis") {
+        cargarGraficoDieciseis(url);
+    }
+    else if (opcion.id === "GraficaDiecisiete") {
+        cargarGraficoDiecisiete(url);
+    }
+    else if (opcion.id === "GraficaDieciocho") {
+        cargarGraficoDieciocho(url);
+    }
+    else if (opcion.id === "GraficaDiecinueve") {
+        cargarGraficoDiecinueve(url);
+    }
+    else if (opcion.id === "GraficaVeinte") {
+        cargarGraficoVeinte(url);
+    }
+    else if (opcion.id === "GraficaVeintiuno") {
+        cargarGraficoVeintiuno(url);
+    }
+    else if (opcion.id === "GraficaVeintidos") {
+        cargarGraficoVeintidos(url);
+    }
+    else if (opcion.id === "GraficaVeintitres") {
+        cargarGraficoVeintitres(url);
+    }   
 };
 
-const cargarGraficoTres = async () => {
-    
-}
+function cargarGraficoUno(url) {
+    let id = [], localidad = [], inscritos = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            localidad.push(element.localidad);
+            inscritos.push(element.inscritos);
+        });
+    });
+    chartGraficaUno(id, localidad, inscritos);
+};
 
-const cargarGraficoCuatro = async () => {
-    
-}
+function cargarGraficoDos(url) {
+    let id = [], carreras = [], inscritos = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            carreras.push(element.localidad);
+            inscritos.push(element.inscritos);
+        });
+    });
+    functionChart(id, carreras, inscritos);
+};
 
-const cargarGraficoCinco = async () => {
-    
-}
+function cargarGraficoTres(url) {
+    let id = [], carreras = [], inscritos = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            carreras.push(element.carrera);
+            inscritos.push(element.inscritos);
+        });
+        console.log(datos);
+    });
+    chartGraficaTres(id, carreras, inscritos);
+};
 
-const cargarGraficoSeis = async () => {
-    
-}
+function cargarGraficoCuatro(url) {
+    let id = [], facultad = [], inscritos = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            facultad.push(element.facultad);
+            inscritos.push(element.inscritos);
+        });
+    });
+    chartGraficaCuatro(id, carrera, inscritos);
+};
 
-const cargarGraficoSiete = async () => {
-    
-}
+function cargarGraficoCinco(url) {
+    let id = [], localidad = [], inscritos = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            localidad.push(element.localidad);
+            inscritos.push(element.inscritos);
+        });
+    });
+    chartGraficaUno(id, localidad, inscritos);
+};
 
-const cargarGraficoOcho = async () => {
-    
-}
+function cargarGraficoSeis(url) {
+    let id = [], carrera = [], inscritos = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            carrera.push(element.carrera);
+            inscritos.push(element.inscritos);
+        });
+    });
+    chartGraficaSeis(grafica, id, carrera, inscritos);
+};
 
-const cargarGraficoNueve = async () => {
-    
-}
+function cargarGraficoSiete(url) {
+    let id = [], modalidad = [], inscritos = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            modalidad.push(element.modalidad);
+            inscritos.push(element.inscritos);
+        });
+    });
+    chartGraficaSiete(id, modalidad, inscritos);
+};
 
-const cargarGraficoDiez = async () => {
-    
-}
+function cargarGraficoOcho(url) {
+    let id = [], periodo = [], titulados = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            periodo.push(element.periodo);
+            titulados.push(element.titulados);
+        });
+    });
+    chartGraficaOcho(id, periodo, titulados);
+};
 
-const cargarGraficoOnce = async () => {
-    
-}
+function cargarGraficoNueve(url) {
+    let id = [], facultad = [], titulados = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            facultad.push(element.facultad);
+            titulados.push(element.titulados);
+        });
+    });
+    chartGraficaNueve(grafica, id, facultad, titulados);
+};
 
-const cargarGraficoDoce = async () => {
-    
-}
+function cargarGraficoDiez(url) {
+    let id = [], periodo = [], egresados = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            periodo.push(element.periodo);
+            egresados.push(element.egresados);
+        });
+    });
+    chartGraficaDiez(grafica, id, periodo, egresados);
+};
+//--------------------------------------------------------------
+function cargarGraficoOnce(url) {
+    let id = [], facultad = [], egresados = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            facultad.push(element.localidad);
+            egresados.push(element.inscritos);
+        });
+    });
+    functionChart(graficaFun, id, facultad, egresados);
+};
 
-const cargarGraficoTrece = async () => {
-    
-}
+function cargarGraficoDoce(url) {
+    let id = [], periodo = [], nuevos = [], titulados = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            periodo.push(element.localidad);
+            nuevos.push(element.inscritos);
+            titulados.push(element.titulados);
+        });
+    });
+    functionChart(ctx, id, periodo, nuevos, titulados);
+};
 
-const cargarGraficoCatorce = async () => {
-    
-}
+function cargarGraficoTrece(url) {
+    let id = [], facultad = [], nuevos = [], titulados = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            facultad.push(element.localidad);
+            nuevos.push(element.inscritos);
+            titulados.push(element.titulados);
+        });
+    });
+    functionChart(grafica, id, facultad, nuevos, titulados);
+};
 
-const cargarGraficoQuince = async () => {
-    
-}
+function cargarGraficoCatorce(url) {
+    let id = [], periodo = [], porcentaje = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            periodo.push(element.inscritos);
+            porcentaje.push(element.carrera);
+        });
+    });
+    functionChart(grafica, id, periodo, porcentaje);
+};
 
-const cargarGraficoDieciseis = async () => {
-    
-}
+function cargarGraficoQuince(url) {
+    let id = [], facultad = [], periodoUno = [], periodoDos = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            facultad.push(element.localidad);
+            periodoUno.push(element.inscritos);
+            periodoDos.push(element.periododos);
+        });
+    });
+    functionChart(grafica, id, facultad, periodoUno, periodoDos);
+};
+//-------------------------------------------------------------------
+function cargarGraficoDieciseis(url) {
+    let id = [], carrera = [], inscritos = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            carrera.push(element.localidad);
+            inscritos.push(element.inscritos);
+        });
+    });
+    functionChart(grafica, id, carrera, inscritos);
+};
 
-const cargarGraficoDiecisiete = async () => {
-    
-}
+function cargarGraficoDiecisiete(url) {
+    let id = [], modalidad = [], inscritos = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            modalidad.push(element.localidad);
+            inscritos.push(element.inscritos);
+        });
+    });
+    functionChart(grafica, id, modalidad, inscritos);
+};
 
-const cargarGraficoDieciocho = async () => {
-    
-}
+function cargarGraficoDieciocho(url) {
+    let id = [], periodo = [], titulados = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            periodo.push(element.localidad);
+            titulados.push(element.inscritos);
+        });
+    });
+    functionChart(grafica, id, periodo, titulados);
+};
 
-const cargarGraficoDiecinueve = async () => {
-    
-}
+function cargarGraficoDiecinueve(url) {
+    let id = [], facultad = [], titulados = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            facultad.push(element.localidad);
+            titulados.push(element.inscritos);
+        });
+    });
+    functionChart(grafica, id, facultad, titulados);
+};
 
-const cargarGraficoVeinte = async () => {
-    
-}
+function cargarGraficoVeinte(url) {
+    let id = [], periodo = [], titulados = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            periodo.push(element.localidad);
+            titulados.push(element.inscritos);
+        });
+    });
+    functionChart(grafica, id, periodo, titulados);
+};
 
-const cargarGraficoVeintiuno = async () => {
-    
-}
+function cargarGraficoVeintiuno(url) {
+    let id = [], periodo = [], titulados = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            periodo.push(element.localidad);
+            titulados.push(element.inscritos);
+        });
+    });
+    functionChart(grafica, id, periodo, titulados);
+};
 
-const cargarGraficoVeintidos = async () => {
-    
-}
+function cargarGraficoVeintidos(url) {
+    let id = [], facultad = [], titulados = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            facultad.push(element.localidad);
+            titulados.push(element.inscritos);
+        });
+    });
+    functionChart(grafica, id, facultad, titulados);
+};
 
-const cargarGraficoVeintitres = async () => {
-    
-}
+function cargarGraficoVeintitres(url) {
+    let id = [], periodo = [], titulados = [];
+    obtenerConsulta(url).then(datos => {
+        datos.forEach(element => {
+            id.push(element.id);
+            periodo.push(element.localidad);
+            titulados.push(element.inscritos);
+        });
+    });
+    functionChart(grafica, id, periodo, titulados);
+};

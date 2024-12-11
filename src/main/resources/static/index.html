@@ -7,34 +7,110 @@
     <title>Rendimiento Academico UAGRM</title>
 </head>
 <body>
-    <div class="botones">
-        <button class="boton" id="graficaUno" onclick="window.location.href='/graficas.html'">Grafica Uno</button>
-        <button class="boton" id="graficaDos" onclick="window.location.href='/graficas.html'">Grafica Dos</button>
-        <button class="boton" id="graficaTres" onclick="window.location.href='/graficas.html'">Grafica Tres</button>
-        <button class="boton" id="graficaCuatro" onclick="window.location.href='/graficas.html'">Grafica Cuatro</button>
-        <button class="boton" id="graficaCinco" onclick="window.location.href='/graficas.html'">Grafica Cinco</button>
-        <button class="boton" id="graficaSeis" onclick="window.location.href='/graficas.html'">Grafica Seis</button>
-        <button class="boton" id="graficaSiete" onclick="window.location.href='/graficas.html'">Grafica Siete</button>
-        <button class="boton" id="graficaOcho" onclick="window.location.href='/graficas.html'">Grafica Ocho</button>
-        <button class="boton" id="graficaNueve" onclick="window.location.href='/graficas.html'">Grafica Nueve</button>
-        <button class="boton" id="graficaDiez" onclick="window.location.href='/graficas.html'">Grafica Diez</button>
-        <button class="boton" id="graficaOnce" onclick="window.location.href='/graficas.html'">Grafica Once</button>
-        <button class="boton" id="graficaDoce" onclick="window.location.href='/graficas.html'">Grafica Doce</button>
-        <button class="boton" id="graficaTrece" onclick="window.location.href='/graficas.html'">Grafica Trece</button>
-        <button class="boton" id="graficaCatorce" onclick="window.location.href='/graficas.html'">Grafica Catorce</button>
-        <button class="boton" id="graficaQuince" onclick="window.location.href='/graficas.html'">Grafica Quince</button>
-        <button class="boton" id="graficaDieciseis" onclick="window.location.href='/graficas.html'">Grafica Dieciseis</button>
-        <button class="boton" id="graficaDiecisiete" onclick="window.location.href='/graficas.html'">Grafica Diecisiete</button>
-        <button class="boton" id="graficaDieciocho" onclick="window.location.href='/graficas.html'">Grafica Dieciocho</button>
-        <button class="boton" id="graficaDiecinueve" onclick="window.location.href='/graficas.html'">Grafica Diecinueve</button>
-        <button class="boton" id="graficaVeinte" onclick="window.location.href='/graficas.html'"> Grafica Veinte</button>
-        <button class="boton" id="graficaVeintiuno" onclick="window.location.href='/graficas.html'">Grafica Veintiuno</button>
-        <button class="boton" id="graficaVeintidos" onclick="window.location.href='/graficas.html'">Grafica Veintidos</button>
-        <button class="boton" id="graficaVeintitres" onclick="window.location.href='/graficas.html'">Grafica Veintitres</button>
+    <div class="botones" id="botones-graficas">
+        <button class="boton" id="GraficaUno">Grafica Uno</button>
+        <button class="boton" id="GraficaDos">Grafica Dos</button>
+        <button class="boton" id="GraficaTres">Grafica Tres</button>
+        <button class="boton" id="GraficaCuatro">Grafica Cuatro</button>
+        <button class="boton" id="GraficaCinco">Grafica Cinco</button>
+        <button class="boton" id="GraficaSeis">Grafica Seis</button>
+        <button class="boton" id="GraficaSiete">Grafica Siete</button>
+        <button class="boton" id="GraficaOcho">Grafica Ocho</button>
+        <button class="boton" id="GraficaNueve">Grafica Nueve</button>
+        <button class="boton" id="GraficaDiez">Grafica Diez</button>
+        <button class="boton" id="GraficaOnce">Grafica Once</button>
+        <button class="boton" id="GraficaDoce">Grafica Doce</button>
+        <button class="boton" id="GraficaTrece">Grafica Trece</button>
+        <button class="boton" id="GraficaCatorce">Grafica Catorce</button>
+        <button class="boton" id="GraficaQuince">Grafica Quince</button>
+        <button class="boton" id="GraficaDieciseis">Grafica Dieciseis</button>
+        <button class="boton" id="GraficaDiecisiete">Grafica Diecisiete</button>
+        <button class="boton" id="GraficaDieciocho">Grafica Dieciocho</button>
+        <button class="boton" id="GraficaDiecinueve">Grafica Diecinueve</button>
+        <button class="boton" id="GraficaVeinte"> Grafica Veinte</button>
+        <button class="boton" id="GraficaVeintiuno">Grafica Veintiuno</button>
+        <button class="boton" id="GraficaVeintidos">Grafica Veintidos</button>
+        <button class="boton" id="GraficaVeintitres">Grafica Veintitres</button>
     </div>
+
+    <div id="paleta-opciones">
+        <button id="retornar">Retornar</button>
+        <button id="mostrar-grafica">Mostrar Grafica</button>
+        <h2>Seleccione una opcion en el casillero</h2>
+    </div>
+
+    <form>
+        <div class="paleta" id="modalidad">
+            <p>Modalidad</p>
+            <select title="modalidades" id="select-cuatro" required>
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option value="DISTANCIA">Distancia</option>
+                <option value="PRESENCIAL">Presencial</option>
+                <option value="VIRTUAL">Virtual</option>
+            </select>
+        </div>
+        <div class="paleta" id="facultad">
+            <p>Facultad</p>
+            <select title="facultades" id="select-tres" required>
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option value="01 INTEGRAL DEL CHACO">01 Integral del Chaco</option>
+                <option value="02 POLITECNICA">02 Politecnica</option>
+                <option value="03 CIENCIAS AGRICOLAS">03 Ciencias Agricolas</option>
+                <option value="04 CIENCIAS ECONOMICAS">04 Ciencias Economicas</option>
+                <option value="05 CIENCIAS EXACTAS Y">05 Ciencias Exactas y </option>
+                <option value="06 CIENCIAS JURIDICAS">06 Ciencias Juridicas</option>
+                <option value="07 CIENCIAS VETERINARI">07 Ciencias Veterinarias</option>
+                <option value="08 HUMANIDADES">08 humanidades</option>
+                <option value="09 CIENCIAS DE LA SALU">09 Ciencias de la Salud</option>
+                <option value="10 CIENCIAS FARMACEUTI">10 Ciencias Farmaceuticas</option>
+                <option value="11 CIENCIAS DEL HABITA">11 Ciencias del Habitad</option>
+                <option value="12 AUDITORIA FINANCIER">12 Auditoria Fianciera</option>
+                <option value="14 INTEGRAL DE LOS VAL">14 Integral de los Valles</option>
+                <option value="18 INGENIERIA EN CIENC">18 Ingenieria En Ciencias de la Computación</option>
+            </select>
+        </div>
+        <div class="paleta" id="localidad">
+            <p>Localidad</p>
+            <select title="localidades" id="select-dos" required>
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option value="SANTA CRUZ">Santa Cruz</option>
+                <option value="CAMIRI">Santa Cruz</option>
+                <option value="PUERTO SUAREZ">Puerto Suarez</option>
+                <option value="EL TORNO">El Torno</option>
+                <option value="MONTERO">Montero</option>
+                <option value="YAPACANI">Yapacani</option>
+                <option value="SAN JULIAN">San Julian</option>
+                <option value="SAN MATIAS">San Matias</option>
+                <option value="SAN IGNACIO DE VELAS">San Ignacio de Velasco</option>
+                <option value="SAN JOSE DE CHIQUITO">San Jose De Chiquitos</option>
+                <option value="COMARAPA">Comarapa</option>
+                <option value="COTOCA">Cotoca</option>
+                <option value="MAIRANA">Mairana</option>
+                <option value="ROBORE">Robore</option>
+                <option value="VALLEGRANDE">Valllegrande</option>
+                <option value="4 CANADAS">Cuatro Cañadas</option>
+                <option value="LA GUARDIA">La Guardia</option>
+            </select>
+        </div>
+        <div class="paleta" id="periodo">
+            <p>Periodo</p>
+            <select title="periodos" id="select-uno" required>
+               <option value="" selected disabled>Selecciona una opción</option>
+                <option value="2019-1">Periodo 2019-1</option>
+                <option value="2019-2">Periodo 2019-2</option>
+                <option value="2020-1">Periodo 2020-1</option>
+            </select>
+        </div>
+    </form>
+
+    <section id="contenido">
+        <div id="tabla-grafica"></div>
+        <canvas id="grafica"></canvas>
+    </section>
     
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="funcionesChart.js"></script>
     <script src="funciones.js"></script>
     <script src="app.js"></script>
-    
 </body>
 </html>
